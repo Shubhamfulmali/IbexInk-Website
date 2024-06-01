@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IbexInk - About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            height: 90px;
+            width: 90px;
+        }
+
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2c8edf;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('background-hero.jpeg') no-repeat center center;
+            background-size: cover;
+            color: #050000;
+        }
+
+        .hero h1 {
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            margin: 0 0 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: #2c8edf;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: url('background-features.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .feature img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            background: url('background-about.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .image-container {
+            width: 30%;
+            margin: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .image-container:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        footer .social-icons img {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #f8f9fa;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                border-left: 1px solid #e9ecef;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: left;
+                padding-left: 20px;
+            }
+
+            .hamburger-menu {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger-menu div {
+                width: 25px;
+                height: 3px;
+                background-color: black;
+                margin: 4px 0;
+                transition: all 0.3s ease;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 90%;
+                max-width: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 90%;
+                max-width: none;
+            }
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images.png" alt="IbexInk Logo" class="logo">
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showTab('home')">Home</a></li>
+                <li><a href="#" onclick="showTab('about')">About</a></li>
+                <li><a href="#" onclick="showTab('services')">Services</a></li>
+                <li><a href="#" onclick="showTab('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <h1>Welcome to IbexInk</h1>
+                <p>Your partner in exceptional content creation.</p>
+                <button onclick="showTab('services')">Explore Our Services</button>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <img src="high-quality-writing.jpeg" alt="High-Quality Writing">
+                    <h2>High-Quality Writing</h2>
+                    <p>We deliver well-researched and meticulously crafted content tailored to your needs.</p>
+                </div>
+                <div class="feature">
+                    <img src="Creative Storytelling.jpg" alt="Creative Storytelling">
+                    <h2>Creative Storytelling</h2>
+                    <p>Our stories captivate and engage, giving your brand a unique voice.</p>
+                </div>
+                <div class="feature">
+                    <img src="professional-documents.jpg" alt="Professional Documents">
+                    <h2>Professional Documents</h2>
+                    <p>From resumes to business reports, we ensure your documents make a strong impression.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="tab-content">
+            <h1>About Us</h1>
+            <div class="about-content">
+                <div class="image-container">
+                    <img src="Team.png" alt="Team at IbexInk">
+                    <p>Our Team</p>
+                </div>
+                <div class="image-container">
+                    <img src="Office.png" alt="Office Environment">
+                    <p>Our Office</p>
+                </div>
+                <div class="image-container">
+                    <img src="clients.png" alt="Happy Clients">
+                    <p>Our Clients</p>
+                </div>
+            </div>
+            <div>
+                <h2>Our Vision</h2>
+                <p>At IBEX INK, we envision a future where every content need, from brand narratives to academic insights, finds its home with us – leading, innovating, and perfecting the art of writing.</p>
+            </div>
+            <div>
+                <h2>Our Mission</h2>
+                <p>Our mission at IBEX INK is to empower clients with impeccable content that resonates. By merging traditional storytelling with modern innovation, we aim to consistently deliver tailored solutions, ensuring that every word we craft not only meets but elevates the diverse narratives of our global clientele.</p>
+            </div>
+            <div>
+                <h2>Our Story - Charting Our Journey</h2>
+                <p>Back in 2012, tucked away in a university corner, we identified a gap. Students, burdened by academic challenges, sought a guiding hand, and we stepped in to fill that void, offering assistance from a humble dormitory setup.</p>
+                <p>Utilizing WhatsApp, our engagement with UK students grew rapidly. But it wasn't just students who reached out. Professionals, budding authors, and even businesses began seeking our expertise. They weren't merely interested in academic support but appreciated our knack for understanding, our way of capturing nuances, and our patience in handling diverse requirements.</p>
+                <p>As word of our work traveled, the ripples of our impact expanded. We found ourselves corresponding with individuals and entities from Germany, answering calls from the USA, and catering to inquiries from Australia. This global recognition was heartening but also signaled a need for expansion.</p>
+                <p>To cater to this growing and diverse clientele, we carefully expanded our team. This wasn't just a group of skilled writers but a collective of individuals who resonated with our foundational principles. Each one brought a unique perspective, ensuring that we could serve not only students but also a broader audience with varied requirements.</p>
+                <p>The narrative of IBEX INK is not merely one of business growth. It's a testament to our adaptability, our commitment to serving a diverse clientele, and our passion for forging meaningful connections. Today, as we look back and towards the future, we remain anchored in our mission: to support, guide, and empower - one piece of content at a time.</p>
+            </div>
+        </section>
+        <section id="services" class="tab-content">
+            <h1>Our Services</h1>
+            <ul>
+                <li>Academic Writing: Elevate your academic pursuits with research-driven, meticulously crafted papers.</li>
+                <li>Brand Narratives: Shape your brand's voice with compelling stories that captivate and engage.</li>
+                <li>Business Content: From sales pitches to annual reports, we articulate your business's essence, ensuring effective communication and connection.</li>
+                <li>Story Crafting: Narratives that captivate and resonate. Be it for brands, personal projects, or publications, we turn ideas into compelling stories.</li>
+                <li>Resume & CV Writing: Your professional journey deserves standout representation. Let us craft a resume or CV that embodies your experience, skills, and aspirations.</li>
+                <li>Cover Letter Composition: Make your introduction count. With our crafted cover letters, display passion, proficiency, and a perfect fit for your desired role.</li>
+            </ul>
+        </section>
+        <section id="contact" class="tab-content">
+            <h2>Contact Info</h2>
+            <p>Our Whatsapp Contact: +91 831-958-6123</p>
+            <p>Our Email: <a href="mailto:rhtvs32@gmail.com">rhtvs32@gmail.com</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 IbexInk. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://in.linkedin.com/company/ibexink" target="_blank">
+                <img src="LinkedIn.png" alt="LinkedIn" class="linkedin-icon">
+            </a>
+            <a href="https://www.instagram.com/ibexink3?igsh=eGgzMHBwMmU2c2Nt" target="_blank">
+                <img src="Instagram.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="Twitter.png" alt="Twitter" class="social-icon">
+            </a>
+        </div>
+    </footer>
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            var activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+        }
+
+        function toggleMenu() {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Show home tab by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('home');
+        });
+    </script>
+</body>
+</html>
